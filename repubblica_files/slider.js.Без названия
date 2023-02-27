@@ -1,0 +1,63 @@
+(function(){
+  //Init Slider
+window.widgetSlider = function(id){
+
+  var widgetSliderInit = function(id){
+      var sliderContainer = id + " .swiper-container";
+      var slider = new Swiper(sliderContainer, {
+          slidesPerView: 'auto',
+          // autoHeight: true, //enable auto height
+          //spaceBetween: 25,
+          preloadImages: false,// Disable preloading of all images
+          lazyLoading: true,// Enable lazy loading
+          lazyLoadingInPrevNext:true,
+          loop: true,
+          watchSlidesProgress :true,
+          watchSlidesVisibility : true,
+          //loopAdditionalSlides:3,
+          //centeredSlides: true,
+          pagination: '.widget-slider__pagination',
+          paginationClickable : true,
+          roundLengths: true,
+          // prevButton: id + ' .widget-slider__button-prev',
+          // nextButton: id + ' .widget-slider__button-next',
+          speed:500,
+          autoplay : 4000,
+      });
+  }
+
+//Se swiper è già caricato
+  if(!window.Swiper || !$.fn.swiper) {
+    var loadEl = function(el, fn){
+    if(el.readyState){
+    if(el.readyState == 'loaded' || el.readyState == 'complete') fn();
+    else {
+      el.onreadystatechange = function() {
+        if (this.readyState == 'loaded' || this.readyState == 'complete') {
+          this.onreadystatechange = null;
+          fn();
+        }
+      };
+    }
+    } else {
+      el.onload = fn
+    }
+  }
+
+  var loadScriptAsync = function(script, fn){
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = script;
+    s.async = true;
+    if(fn) loadEl(s, fn)
+    document.getElementsByTagName('head')[0].appendChild(s);
+  }
+
+  loadScriptAsync('//www.repstatic.it/cless/common/stable/js/vendor/swiper/swiper-3.3.1.js', function() { widgetSliderInit(id)})
+
+  } else {
+    widgetSliderInit(id)
+  }
+}
+
+})();

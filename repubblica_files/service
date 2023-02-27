@@ -1,0 +1,9 @@
+var ADX_CAT_1 = "15000,15001,15043";
+var ADX_CAT_2 = "15000,15075";
+var ADX_CAT_3 = "NC";
+var ADX_CAT_4 = "NC";
+var ADX_CAT_5 = "NC";
+var ADX_BS_1 = "S_2524,S_4187";
+var ADX_ENT_PEOPLE = "Sara Lonardi";
+var ADX_ENT_PLACE = "Italia";
+var ADX_ENT_ORG = "Associazione Italiana di Oncologia Medica";
